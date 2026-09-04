@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="320" viewBox="0 0 260 320">
+  <!-- Motivo de marca: rostros a una sola linea, tomado del papel tapiz
+       del consultorio de Skin Rejuveness. Trazo nogal, opacidad baja. -->
+  <g fill="none" stroke="#7C4A2C" stroke-opacity="0.16" stroke-width="1.4"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- Rostro de perfil, arriba a la izquierda -->
+    <path d="M42 34c18-14 44-8 52 12 7 17 2 34-4 49-3 8 3 11 8 12-4 6-11 5-16 3-2 12 1 25-6 35-9 13-28 15-40 6"/>
+    <path d="M62 78c4-4 10-4 14 0"/>
+    <path d="M50 110c8 6 19 6 27 0"/>
+    <path d="M36 40c-14 12-19 33-12 50"/>
+
+    <!-- Rostro de frente, abajo a la derecha -->
+    <path d="M168 176c22-10 46 4 50 27 4 22-6 44-24 56-14 9-33 6-43-7-11-15-11-37-1-53 4-7 10-14 18-19"/>
+    <path d="M172 214c5-4 12-4 17 0"/>
+    <path d="M206 214c5-4 12-4 17 0"/>
+    <path d="M186 236c3 8 3 15 0 22 4 3 9 3 13 0"/>
+    <path d="M178 264c9 7 21 7 30-1"/>
+
+    <!-- Trazo suelto que conecta ambos, refuerza el efecto de linea continua -->
+    <path d="M104 128c22 10 34 26 44 44 6 11 12 12 22 8"/>
+    <path d="M8 220c16 6 26 18 30 34"/>
+    <path d="M232 62c-14 8-22 20-24 36"/>
+  </g>
+</svg>
