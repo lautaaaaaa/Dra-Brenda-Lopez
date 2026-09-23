@@ -5,19 +5,16 @@ la carpeta a Hostinger, Netlify o cualquier hosting estático.
 
 ## Qué falta antes de publicar
 
-**Las 3 fotos ya están puestas** en `assets/img/`: `hero.jpg` (fondo del hero),
-`doctor-hero.jpg` (tarjeta del hero) y `doctor.jpg` (sección "La Doctora"). No hay
-que tocar nada más para ellas.
+**Fotos** en `assets/img/`: `hero.jpg` (fondo del hero), `equipo-hero.jpg` (tarjeta
+del hero, el equipo completo), `doctor.jpg` (la Dra. Brenda en la sección "Equipo") y
+`equipo-1.jpg` a `equipo-4.jpg` (el resto del equipo). Los originales en alta están en
+`_originales-no-subir/equipo-sep-2026/`, fuera de la carpeta que se publica.
 
-**Falta el video del consultorio.** Va en `assets/video/instalaciones.mp4`, vertical
-(9:16), sin audio necesario. Se muestra en la sección "El espacio", a la derecha del
-texto. Mientras no exista el archivo, esa caja muestra el papel tapiz de arena con el
-motivo de rostros y la web se ve terminada igual. En cuanto se copie el archivo con
-ese nombre, el video aparece solo: no hay que tocar el HTML.
+**Faltan los nombres y cargos del equipo.** En `index.html`, sección `#equipo`, hay un
+comentario que explica cómo agregarlos debajo de cada foto.
 
-Si el video queda pesado, conviene además una imagen de portada en
-`assets/img/instalaciones-poster.jpg` (un fotograma del propio video), que es lo que
-se ve mientras carga.
+**Video del consultorio** en `assets/video/instalaciones.mp4` (la doctora presentando
+el consultorio), con su portada en `assets/img/instalaciones-poster.jpg`.
 
 **El antes y después ya está**, con fotos reales de la doctora (bótox, peeling,
 relleno de labios y rinomodelación) en `assets/img/ba-*.png`, tal cual las pasó

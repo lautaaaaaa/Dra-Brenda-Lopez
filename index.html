@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260904" />
+  <link rel="stylesheet" href="styles.css?v=20260923" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231E1C1A'/><text x='50' y='70' font-size='58' font-family='Georgia,serif' fill='%23C6A15B' text-anchor='middle'>S</text></svg>" />
 
@@ -212,7 +212,7 @@
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#resultados">Resultados</a>
         <a href="#tratamientos">Tratamientos</a>
-        <a href="#sobre-mi">La Doctora</a>
+        <a href="#equipo">Equipo</a>
         <a href="#instalaciones">Instalaciones</a>
         <a href="#testimonios">Opiniones</a>
         <a href="#contacto">Contacto</a>
@@ -241,7 +241,7 @@
         </div>
         <div class="hero-img-wrap">
           <div class="hero-img-card">
-            <img src="assets/img/doctor-hero.jpg" alt="Dra. Brenda López Carmona, médica estética en San Jerónimo, CDMX" fetchpriority="high" loading="eager" onerror="this.remove()" />
+            <img src="assets/img/equipo-hero.jpg" alt="Equipo de Skin Rejuveness con la Dra. Brenda López Carmona en el consultorio de San Jerónimo, CDMX" width="1100" height="1100" fetchpriority="high" loading="eager" onerror="this.remove()" />
           </div>
         </div>
       </div>
@@ -674,17 +674,17 @@
       </div>
     </section>
 
-    <!-- ============ 9. SOBRE LA DRA. BRENDA ============ -->
-    <section class="section about" id="sobre-mi">
+    <!-- ============ 9. EL EQUIPO (la Dra. Brenda destacada + el resto del equipo) ============ -->
+    <section class="section about" id="equipo">
       <div class="section-inner">
         <div class="about-grid">
           <div class="about-img reveal">
-            <img src="assets/img/doctor.jpg" alt="Dra. Brenda López Carmona, médica estética en San Jerónimo Lídice, CDMX" loading="lazy" onerror="this.remove()" />
+            <img src="assets/img/doctor.jpg" alt="Dra. Brenda López Carmona, médica estética en San Jerónimo Lídice, CDMX" width="900" height="1200" loading="lazy" onerror="this.remove()" />
           </div>
           <div class="about-content">
-            <p class="section-kicker reveal">La doctora</p>
+            <p class="section-kicker reveal">Nuestro equipo</p>
             <h2 class="about-name reveal">Dra. Brenda López Carmona</h2>
-            <p class="about-role reveal">Médica estética · Especialista en obesidad y longevidad</p>
+            <p class="about-role reveal">Fundadora · Médica estética · Especialista en obesidad y longevidad</p>
             <p class="about-bio reveal">Médica egresada de la Universidad Anáhuac México, con Maestría en Medicina Estética y Obesidad por el Instituto Panamericano de Profesionales Científicos y Doctorado en Desarrollo Humano por la Universidad Motolinía. Es docente en el IPPC, donde forma a otros médicos estéticos.</p>
             <p class="about-bio reveal">Fundó Skin Rejuveness como un centro médico integral: un lugar donde la formación médica se combina con un enfoque personalizado, orientado al bienestar, la prevención y el embellecimiento natural.</p>
             <p class="about-bio reveal">Su trabajo se concentra en el rejuvenecimiento no invasivo, el manejo de la adiposidad localizada y la aplicación de pruebas genéticas enfocadas en nutrición y salud de la piel, para diseñar tratamientos individualizados según las características reales de cada paciente.</p>
@@ -716,6 +716,27 @@
             </ul>
           </div>
         </div>
+
+        <div class="team">
+          <h3 class="team-title reveal">Y el equipo que te acompaña <em>en cada visita.</em></h3>
+          <!-- Nombres pendientes: cuando la doctora los pase, agregar debajo de cada <img>:
+               <figcaption><strong>Nombre</strong><span>Cargo</span></figcaption>
+               y completar el alt de la foto con el nombre. -->
+          <div class="team-grid">
+            <figure class="team-card reveal">
+              <img src="assets/img/equipo-1.jpg" alt="Integrante del equipo de Skin Rejuveness" width="720" height="900" loading="lazy" />
+            </figure>
+            <figure class="team-card reveal">
+              <img src="assets/img/equipo-2.jpg" alt="Integrante del equipo de Skin Rejuveness" width="720" height="900" loading="lazy" />
+            </figure>
+            <figure class="team-card reveal">
+              <img src="assets/img/equipo-3.jpg" alt="Integrante del equipo de Skin Rejuveness" width="720" height="900" loading="lazy" />
+            </figure>
+            <figure class="team-card reveal">
+              <img src="assets/img/equipo-4.jpg" alt="Integrante del equipo de Skin Rejuveness" width="720" height="900" loading="lazy" />
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -744,7 +765,7 @@
             <a href="#contacto" class="btn btn-ghost reveal">Ver cómo llegar</a>
           </div>
 
-          <!-- VIDEO DEL CONSULTORIO: dejar el archivo en assets/video/instalaciones.mp4 (vertical 9:16).
+          <!-- VIDEO DEL CONSULTORIO: assets/video/instalaciones.mp4 (vertical 9:16, la doctora presentando el consultorio).
                Mientras no exista, esta caja muestra el papel tapiz de la marca y no se rompe. -->
           <figure class="space-video reveal">
             <video controls controlslist="nodownload nofullscreen noplaybackrate noremoteplayback" disablepictureinpicture playsinline preload="metadata" poster="assets/img/instalaciones-poster.jpg" aria-label="Recorrido por el consultorio de Skin Rejuveness en San Jerónimo, CDMX">
@@ -1022,7 +1043,7 @@
         <a href="#resultados">Resultados</a>
         <a href="#tratamientos">Tratamientos</a>
         <a href="tratamientos.html">Todos los tratamientos</a>
-        <a href="#sobre-mi">La Doctora</a>
+        <a href="#equipo">Equipo</a>
         <a href="#instalaciones">Instalaciones</a>
         <a href="#testimonios">Opiniones</a>
         <a href="#contacto">Contacto</a>
@@ -1051,8 +1072,8 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.477-.738-6.24-1.993l-.436-.321-2.644.886.886-2.644-.321-.436A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 
-  <script defer src="lib/gsap.min.js?v=20260904"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20260904"></script>
-  <script defer src="main.js?v=20260904"></script>
+  <script defer src="lib/gsap.min.js?v=20260923"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20260923"></script>
+  <script defer src="main.js?v=20260923"></script>
 </body>
 </html>

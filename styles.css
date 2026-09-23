@@ -407,9 +407,9 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(30,28,26,0.15);
-  max-width: 440px;
+  max-width: 540px;
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;   /* foto del equipo completo: cuadrada para que entren las cinco */
   background:
     url('assets/img/motivo-lineas.svg') repeat,
     linear-gradient(160deg, var(--bg-3) 0%, var(--taupe) 100%);
@@ -421,7 +421,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   height: auto;
   display: block;
   object-fit: cover;
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
 }
 
 /* =============================================================
@@ -662,6 +662,57 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   height: 20px;
   color: var(--accent);
   flex-shrink: 0;
+}
+
+/* Resto del equipo, debajo de la Dra. Brenda */
+.team {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+.team-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+.team-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.team-card {
+  margin: 0;
+}
+.team-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  display: block;
+}
+.team-card figcaption {
+  margin-top: 0.9rem;
+  text-align: center;
+}
+.team-card figcaption strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.team-card figcaption span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: 0.2rem;
 }
 
 /* =============================================================
@@ -1033,7 +1084,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .hero-img-wrap { order: -1; }
-  .hero-img-card { max-width: 320px; }
+  .hero-img-card { max-width: 440px; }
 
   .trust-strip-inner { grid-template-columns: repeat(2, 1fr); }
 
@@ -1045,6 +1096,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .about .section-kicker, .about .section-title { text-align: center; margin-left: auto; }
   .about-img { max-width: 400px; margin: 0 auto; }
   .about-creds { align-items: center; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 
   .why-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1079,7 +1131,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .why-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
   .btn { padding: 0.75rem 1.6rem; font-size: 0.9rem; }
-  .hero-img-card { max-width: 260px; }
+  .hero-img-card { max-width: 100%; }
 }
 
 /* =============================================================
