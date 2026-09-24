@@ -682,8 +682,8 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
 }
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
 }
 .team-card {
   margin: 0;
@@ -1096,7 +1096,9 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .about .section-kicker, .about .section-title { text-align: center; margin-left: auto; }
   .about-img { max-width: 400px; margin: 0 auto; }
   .about-creds { align-items: center; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  /* 5 integrantes: en flex para que la fila incompleta quede centrada (3 + 2) */
+  .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .team-card { width: calc((100% - 2rem) / 3); }
 
   .why-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1132,6 +1134,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
   .btn { padding: 0.75rem 1.6rem; font-size: 0.9rem; }
   .hero-img-card { max-width: 100%; }
+  .team-card { width: calc((100% - 1rem) / 2); }
 }
 
 /* =============================================================
@@ -1649,6 +1652,10 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
+.booking-optional {
+  font-weight: 400;
+  color: var(--ink-mute);
+}
 .booking-slots-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1667,6 +1674,11 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
 .slot:hover:not(:disabled) {
   border-color: var(--accent);
   background: rgba(184,148,63,0.08);
+}
+.slot:disabled {
+  opacity: 0.35;
+  text-decoration: line-through;
+  cursor: default;
 }
 .slot.is-selected {
   background: var(--accent);

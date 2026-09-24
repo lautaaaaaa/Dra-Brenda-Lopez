@@ -243,6 +243,7 @@
     var formWrap = $("#booking-form-wrap");
     var form = $("#booking-form");
     var successWrap = $("#booking-success");
+    var slotsGrid = $("#booking-slots-grid");
     if (!daysContainer || !monthLabel) return;
 
     var MONTHS = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
@@ -251,6 +252,23 @@
     var currentYear = today.getFullYear();
     var selectedDate = null;
     var selectedSlot = null;
+
+    // Mismos horarios que la seccion Ubicacion: L-V 10:00-19:00, sab 08:00-14:00, dom cerrado.
+    // El ultimo turno es una hora antes del cierre.
+    var HOURS = { weekday: [10, 18], saturday: [8, 13] };
+
+    function renderSlots() {
+      if (!slotsGrid || !selectedDate) return;
+      var range = selectedDate.getDay() === 6 ? HOURS.saturday : HOURS.weekday;
+      var now = new Date();
+      var isToday = selectedDate.toDateString() === now.toDateString();
+      var html = "";
+      for (var h = range[0]; h <= range[1]; h++) {
+        var passed = isToday && h <= now.getHours();
+        html += '<button type="button" class="slot" data-time="' + h + ':00"' + (passed ? " disabled" : "") + '>' + h + ':00</button>';
+      }
+      slotsGrid.innerHTML = html;
+    }
 
     function render() {
       var first = new Date(currentYear, currentMonth, 1);
@@ -295,19 +313,24 @@
       var btn = e.target.closest("button[data-day]");
       if (!btn) return;
       selectedDate = new Date(currentYear, currentMonth, parseInt(btn.dataset.day));
+      selectedSlot = null;
       render();
+      renderSlots();
+      // El horario es opcional: el formulario aparece apenas se elige el dia
       if (slotsWrap) slotsWrap.hidden = false;
-      if (formWrap) formWrap.hidden = true;
+      if (formWrap) formWrap.hidden = false;
+      if (successWrap) successWrap.hidden = true;
     });
 
     if (slotsWrap) {
       slotsWrap.addEventListener("click", function (e) {
         var btn = e.target.closest(".slot:not(:disabled)");
         if (!btn) return;
-        selectedSlot = btn.dataset.time;
+        // Tocar el horario elegido lo deselecciona (es opcional)
+        var wasSelected = btn.classList.contains("is-selected");
         $$(".slot", slotsWrap).forEach(function (s) { s.classList.remove("is-selected"); });
-        btn.classList.add("is-selected");
-        if (formWrap) formWrap.hidden = false;
+        selectedSlot = wasSelected ? null : btn.dataset.time;
+        if (!wasSelected) btn.classList.add("is-selected");
       });
     }
 
@@ -316,13 +339,12 @@
         e.preventDefault();
         var inputs = $$(".booking-input", form);
         var name = inputs[0] ? inputs[0].value.trim() : "";
-        var phone = inputs[1] ? inputs[1].value.trim() : "";
-        if (!name || !phone) return;
+        if (!name) { inputs[0].focus(); return; }
 
         var dateStr = selectedDate ? selectedDate.getDate() + "/" + (selectedDate.getMonth()+1) + "/" + selectedDate.getFullYear() : "";
 
         // Numero y nombre del lead. Si cambia el WhatsApp, cambiarlo tambien en los .html.
-        var msg = "Hola Dra. Brenda, soy " + name + ". Quiero agendar una valoracion para el " + dateStr + " a las " + (selectedSlot || "") + ". Mi telefono es " + phone + ".";
+        var msg = "Hola Dra. Brenda, soy " + name + ". Quiero agendar una valoración para el " + dateStr + (selectedSlot ? " a las " + selectedSlot : "") + ".";
         var waUrl = "https://wa.me/525565081447?text=" + encodeURIComponent(msg);
         window.open(waUrl, "_blank");
 
