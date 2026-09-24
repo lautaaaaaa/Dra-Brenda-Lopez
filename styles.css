@@ -1642,6 +1642,10 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   border: 2px solid var(--accent);
   font-weight: 700;
 }
+/* Hoy no se puede reservar, pero se sigue viendo marcado */
+.booking-days button.is-today:disabled {
+  opacity: 0.6;
+}
 .booking-days button.is-selected {
   background: var(--accent);
   color: #fff;

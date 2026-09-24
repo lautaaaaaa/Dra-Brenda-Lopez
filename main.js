@@ -247,7 +247,10 @@
     if (!daysContainer || !monthLabel) return;
 
     var MONTHS = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-    var today = new Date();
+    // "Hoy" siempre es el de Ciudad de Mexico, se mire desde donde se mire.
+    // Se reserva desde manana: hoy se marca en el calendario pero no se puede elegir.
+    var mx = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Mexico_City", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()).split("-");
+    var today = new Date(+mx[0], +mx[1] - 1, +mx[2]);
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
     var selectedDate = null;
@@ -260,12 +263,9 @@
     function renderSlots() {
       if (!slotsGrid || !selectedDate) return;
       var range = selectedDate.getDay() === 6 ? HOURS.saturday : HOURS.weekday;
-      var now = new Date();
-      var isToday = selectedDate.toDateString() === now.toDateString();
       var html = "";
       for (var h = range[0]; h <= range[1]; h++) {
-        var passed = isToday && h <= now.getHours();
-        html += '<button type="button" class="slot" data-time="' + h + ':00"' + (passed ? " disabled" : "") + '>' + h + ':00</button>';
+        html += '<button type="button" class="slot" data-time="' + h + ':00">' + h + ':00</button>';
       }
       slotsGrid.innerHTML = html;
     }
@@ -282,7 +282,7 @@
       for (var i = 0; i < startDay; i++) html += '<button disabled></button>';
       for (var d = 1; d <= lastDay; d++) {
         var date = new Date(currentYear, currentMonth, d);
-        var isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        var isPast = date <= today;
         var isSunday = date.getDay() === 0;
         var isToday = d === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear();
         var isSelected = selectedDate && d === selectedDate.getDate() && currentMonth === selectedDate.getMonth() && currentYear === selectedDate.getFullYear();
