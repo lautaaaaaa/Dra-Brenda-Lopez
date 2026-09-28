@@ -28,8 +28,26 @@
     var nav = $("#nav");
     if (!nav) return;
 
+    /* En celular el navbar se esconde al bajar y vuelve al subir, para no
+       comerse pantalla mientras se lee. En desktop queda siempre fijo. */
+    var mobile = window.matchMedia("(max-width: 960px)");
+    var lastY = window.scrollY;
+    var ticking = false;
+
+    function update() {
+      var y = Math.max(window.scrollY, 0);
+      nav.classList.toggle("is-scrolled", y > 40);
+      if (!mobile.matches || y < nav.offsetHeight) {
+        nav.classList.remove("is-hidden");
+      } else if (Math.abs(y - lastY) > 6) {
+        nav.classList.toggle("is-hidden", y > lastY);
+      }
+      if (Math.abs(y - lastY) > 6) lastY = y;
+      ticking = false;
+    }
+
     window.addEventListener("scroll", function () {
-      nav.classList.toggle("is-scrolled", window.scrollY > 40);
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
   }
 
@@ -44,9 +62,12 @@
       if (!el) return;
       e.preventDefault();
       var nav = $("#nav");
-      var navOffset = (nav ? nav.offsetHeight : 72) + 8;
+      var target = el.getBoundingClientRect().top + window.scrollY;
+      /* En celular, bajando, el navbar se esconde: no hace falta dejarle lugar. */
+      var hides = window.matchMedia("(max-width: 960px)").matches && target > window.scrollY;
+      var navOffset = hides ? 16 : (nav ? nav.offsetHeight : 72) + 8;
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - navOffset,
+        top: target - navOffset,
         behavior: "smooth"
       });
     });

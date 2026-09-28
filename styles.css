@@ -1089,20 +1089,24 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .footer-social { justify-content: center; }
   .footer-links { align-items: center; }
 
-  /* En celular y tablet el navbar tiene dos filas: logo arriba y abajo los
-     links siempre visibles (un menu escondido tras un icono casi no se toca).
-     Solo van los 4 principales; Agendar ya esta en botones y en el flotante
-     de WhatsApp. --nav-h crece para que el hero y los anclas lo respeten. */
-  :root { --nav-h: 104px; }
+  /* En celular y tablet el navbar tiene dos filas: arriba el logo y Agendar,
+     abajo los 4 links principales siempre visibles (un menu escondido tras un
+     icono casi no se toca). Se esconde al bajar y reaparece al subir
+     (main.js -> initNav). --nav-h crece para que el hero lo respete. */
+  :root { --nav-h: 94px; }
+  .nav { transition: box-shadow 0.3s, transform 0.35s var(--ease-out); }
+  .nav.is-hidden { transform: translateY(-100%); }
   .nav-inner {
     flex-wrap: wrap;
     align-content: flex-start;
     row-gap: 0;
   }
-  .nav-logo { height: 64px; }
+  .nav-logo { height: 58px; }
+  .nav-logo img { height: 40px; }
   .nav-links {
+    order: 3;
     width: 100%;
-    height: 40px;
+    height: 36px;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
@@ -1111,7 +1115,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .nav-links a { font-size: 0.8rem; letter-spacing: 0.02em; }
   .nav-links a::after { bottom: -3px; }
   .nav-links a:nth-child(n+5) { display: none; }
-  .nav-cta { display: none; }
+  .nav-cta { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
 }
 
 @media (max-width: 540px) {
