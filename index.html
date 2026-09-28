@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260924d" />
+  <link rel="stylesheet" href="styles.css?v=20260929i" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231E1C1A'/><text x='50' y='70' font-size='58' font-family='Georgia,serif' fill='%23C6A15B' text-anchor='middle'>S</text></svg>" />
 
@@ -206,15 +206,12 @@
       <a href="#hero" class="nav-logo" aria-label="Skin Rejuveness by Bömedical, inicio">
         <img src="assets/img/logo-nav.png" alt="Skin Rejuveness by Bömedical" width="480" height="282" />
       </a>
-      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
       <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#testimonios">Opiniones</a>
         <a href="#resultados">Resultados</a>
         <a href="#tratamientos">Tratamientos</a>
         <a href="#equipo">Equipo</a>
         <a href="#instalaciones">Instalaciones</a>
-        <a href="#testimonios">Opiniones</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <a href="https://wa.me/525565081447?text=Hola%20Dra.%20Brenda%2C%20vengo%20de%20su%20sitio%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n." class="nav-cta" target="_blank" rel="noopener">Agendar</a>
@@ -386,44 +383,59 @@
         <h2 class="section-title reveal">Cambios que se notan <em>sin que se noten.</em></h2>
         <div class="results-grid">
           <div class="result-card reveal">
-            <div class="ba-slider" data-ba>
-              <img src="assets/img/ba-botox-antes.png" alt="Antes de toxina botulínica, paciente de la Dra. Brenda López" class="ba-before" loading="lazy" />
-              <img src="assets/img/ba-botox-despues.png" alt="Después de toxina botulínica, paciente de la Dra. Brenda López" class="ba-after" loading="lazy" />
-              <div class="ba-handle"><div class="ba-handle-line"></div><div class="ba-handle-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg></div><div class="ba-handle-line"></div></div>
+            <div class="ba-pair">
+              <img src="assets/img/ba-1-antes.jpg?v=20260929e" alt="Antes de enzimas lipolíticas en papada, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <img src="assets/img/ba-1-despues.jpg?v=20260929e" alt="Después de enzimas lipolíticas en papada, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <span class="ba-divider" aria-hidden="true"></span>
+              <img src="assets/img/marca-de-agua.png?v=20260929e" alt="" class="ba-watermark" aria-hidden="true" />
+              <span class="ba-label ba-label--before">Antes</span>
+              <span class="ba-label ba-label--after">Después</span>
+            </div>
+            <p class="result-name">Enzimas lipolíticas</p>
+          </div>
+          <div class="result-card reveal">
+            <div class="ba-pair">
+              <img src="assets/img/ba-2-antes.jpg?v=20260929e" alt="Antes de toxina botulínica, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <img src="assets/img/ba-2-despues.jpg?v=20260929e" alt="Después de toxina botulínica, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <span class="ba-divider" aria-hidden="true"></span>
+              <img src="assets/img/marca-de-agua.png?v=20260929e" alt="" class="ba-watermark" aria-hidden="true" />
               <span class="ba-label ba-label--before">Antes</span>
               <span class="ba-label ba-label--after">Después</span>
             </div>
             <p class="result-name">Toxina botulínica</p>
           </div>
           <div class="result-card reveal">
-            <div class="ba-slider" data-ba>
-              <img src="assets/img/ba-peelings-antes.png" alt="Antes de peeling facial para manchas, paciente de la Dra. Brenda López" class="ba-before" loading="lazy" />
-              <img src="assets/img/ba-peelings-despues.png" alt="Después de peeling facial para manchas, paciente de la Dra. Brenda López" class="ba-after" loading="lazy" />
-              <div class="ba-handle"><div class="ba-handle-line"></div><div class="ba-handle-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg></div><div class="ba-handle-line"></div></div>
+            <div class="ba-pair">
+              <img src="assets/img/ba-3-antes.png" alt="Antes de tratamiento de sonrisa gingival, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <img src="assets/img/ba-3-despues.png" alt="Después de tratamiento de sonrisa gingival, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <span class="ba-divider" aria-hidden="true"></span>
+              <img src="assets/img/marca-de-agua.png?v=20260929e" alt="" class="ba-watermark" aria-hidden="true" />
               <span class="ba-label ba-label--before">Antes</span>
               <span class="ba-label ba-label--after">Después</span>
             </div>
-            <p class="result-name">Peeling para manchas</p>
+            <p class="result-name">Sonrisa gingival</p>
           </div>
           <div class="result-card reveal">
-            <div class="ba-slider" data-ba>
-              <img src="assets/img/ba-rellenolabios-antes.png" alt="Antes de relleno de labios, paciente de la Dra. Brenda López" class="ba-before" loading="lazy" />
-              <img src="assets/img/ba-rellenolabios-despues.png" alt="Después de relleno de labios, paciente de la Dra. Brenda López" class="ba-after" loading="lazy" />
-              <div class="ba-handle"><div class="ba-handle-line"></div><div class="ba-handle-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg></div><div class="ba-handle-line"></div></div>
+            <div class="ba-pair">
+              <img src="assets/img/ba-4-antes.jpg?v=20260929e" alt="Antes de rellenos de ácido hialurónico, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <img src="assets/img/ba-4-despues.jpg?v=20260929e" alt="Después de rellenos de ácido hialurónico, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <span class="ba-divider" aria-hidden="true"></span>
+              <img src="assets/img/marca-de-agua.png?v=20260929e" alt="" class="ba-watermark" aria-hidden="true" />
               <span class="ba-label ba-label--before">Antes</span>
               <span class="ba-label ba-label--after">Después</span>
             </div>
-            <p class="result-name">Relleno de labios</p>
+            <p class="result-name">Rellenos de ácido hialurónico</p>
           </div>
           <div class="result-card reveal">
-            <div class="ba-slider" data-ba>
-              <img src="assets/img/ba-rinomodelacion-antes.png" alt="Antes de rinomodelación, paciente de la Dra. Brenda López" class="ba-before" loading="lazy" />
-              <img src="assets/img/ba-rinomodelacion-despues.png" alt="Después de rinomodelación, paciente de la Dra. Brenda López" class="ba-after" loading="lazy" />
-              <div class="ba-handle"><div class="ba-handle-line"></div><div class="ba-handle-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg></div><div class="ba-handle-line"></div></div>
+            <div class="ba-pair">
+              <img src="assets/img/ba-5-antes.png" alt="Antes de Endolyse en abdomen, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <img src="assets/img/ba-5-despues.jpg?v=20260929h" alt="Después de Endolyse en abdomen, paciente de la Dra. Brenda López" class="ba-half" loading="lazy" />
+              <span class="ba-divider" aria-hidden="true"></span>
+              <img src="assets/img/marca-de-agua.png?v=20260929e" alt="" class="ba-watermark" aria-hidden="true" />
               <span class="ba-label ba-label--before">Antes</span>
               <span class="ba-label ba-label--after">Después</span>
             </div>
-            <p class="result-name">Rinomodelación</p>
+            <p class="result-name">Endolyse</p>
           </div>
         </div>
         <p class="results-disclaimer">Fotos de pacientes del consultorio, publicadas con su autorización. Los resultados varían según cada paciente.</p>
@@ -738,7 +750,7 @@
         <div class="space-grid">
           <div class="space-text">
             <p class="section-kicker reveal">El consultorio</p>
-            <h2 class="section-title reveal">Un consultorio pensado para <em>que estés cómoda.</em></h2>
+            <h2 class="section-title reveal">Un consultorio pensado para <em>que el paciente esté cómodo.</em></h2>
             <p class="space-lead reveal">Nuestros pacientes lo mencionan una y otra vez: el lugar está precioso. Un centro médico en San Jerónimo diseñado para que un procedimiento no se sienta como un procedimiento.</p>
             <ul class="space-list reveal">
               <li>
@@ -751,7 +763,7 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-4.35-9-8.5C1.5 9 3.5 5 7.5 5c2 0 3.5 1.2 4.5 2.5C13 6.2 14.5 5 16.5 5c4 0 6 4 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
-                Atención de una sola paciente a la vez, sin sala llena ni prisas.
+                Atención de un solo paciente a la vez, sin sala llena ni prisas.
               </li>
             </ul>
             <a href="#contacto" class="btn btn-ghost reveal">Ver cómo llegar</a>
@@ -773,71 +785,46 @@
       <div class="section-inner">
         <p class="section-kicker reveal">Mito vs verdad</p>
         <h2 class="section-title reveal">Lo que se dice y <em>lo que pasa.</em></h2>
-        <p class="section-sub reveal">Pasa el cursor o toca cada tarjeta para ver la respuesta.</p>
 
         <div class="myths-grid">
 
-          <article class="myth reveal" tabindex="0" role="button" aria-label="Mito: el bótox congela la cara. Activa para ver la respuesta.">
-            <div class="myth__inner">
-              <div class="myth__face myth__face--front">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-5.jpg" alt="" loading="lazy" />
-                <span class="myth__tag">Mito</span>
-                <p class="myth__text">“El bótox te deja la cara congelada.”</p>
-                <span class="myth__hint">Ver respuesta</span>
-              </div>
-              <div class="myth__face myth__face--back">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-5.jpg" alt="" loading="lazy" />
-                <span class="myth__tag myth__tag--true">Verdad</span>
-                <p class="myth__text">Se congela cuando la dosis es genérica. Aquí se calcula músculo por músculo, en tu valoración, para que el gesto siga siendo tuyo.</p>
-              </div>
+          <article class="myth reveal">
+            <img src="assets/plastic-esthetic-stock/mitos/mito-5.jpg" alt="" loading="lazy" />
+            <div class="myth__body">
+              <span class="myth__tag">Mito</span>
+              <p class="myth__text">“El bótox te deja la cara congelada.”</p>
+              <span class="myth__tag myth__tag--true">Verdad</span>
+              <p class="myth__answer">Se congela cuando la dosis es genérica. Aquí se calcula músculo por músculo, en tu valoración, para que el gesto siga siendo tuyo.</p>
             </div>
           </article>
 
-          <article class="myth reveal" tabindex="0" role="button" aria-label="Mito: los bioestimuladores son lo mismo que un relleno. Activa para ver la respuesta.">
-            <div class="myth__inner">
-              <div class="myth__face myth__face--front">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-6.jpg" alt="" loading="lazy" />
-                <span class="myth__tag">Mito</span>
-                <p class="myth__text">“Los bioestimuladores son lo mismo que un relleno.”</p>
-                <span class="myth__hint">Ver respuesta</span>
-              </div>
-              <div class="myth__face myth__face--back">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-6.jpg" alt="" loading="lazy" />
-                <span class="myth__tag myth__tag--true">Verdad</span>
-                <p class="myth__text">El relleno agrega volumen desde el primer día. El bioestimulador hace que tu propia piel produzca colágeno durante meses. Son objetivos distintos.</p>
-              </div>
+          <article class="myth reveal">
+            <img src="assets/plastic-esthetic-stock/mitos/mito-6.jpg" alt="" loading="lazy" />
+            <div class="myth__body">
+              <span class="myth__tag">Mito</span>
+              <p class="myth__text">“Los bioestimuladores son lo mismo que un relleno.”</p>
+              <span class="myth__tag myth__tag--true">Verdad</span>
+              <p class="myth__answer">El relleno agrega volumen desde el primer día. El bioestimulador hace que tu propia piel produzca colágeno durante meses. Son objetivos distintos.</p>
             </div>
           </article>
 
-          <article class="myth reveal" tabindex="0" role="button" aria-label="Mito: la medicina estética es solo para tapar arrugas. Activa para ver la respuesta.">
-            <div class="myth__inner">
-              <div class="myth__face myth__face--front">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-7.jpg" alt="" loading="lazy" />
-                <span class="myth__tag">Mito</span>
-                <p class="myth__text">“Esto es solo para tapar arrugas.”</p>
-                <span class="myth__hint">Ver respuesta</span>
-              </div>
-              <div class="myth__face myth__face--back">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-7.jpg" alt="" loading="lazy" />
-                <span class="myth__tag myth__tag--true">Verdad</span>
-                <p class="myth__text">Buena parte de la consulta es calidad de piel: manchas, textura, hidratación y prevención. Empezar a tiempo suele pedir mucho menos después.</p>
-              </div>
+          <article class="myth reveal">
+            <img src="assets/plastic-esthetic-stock/mitos/mito-7.jpg" alt="" loading="lazy" />
+            <div class="myth__body">
+              <span class="myth__tag">Mito</span>
+              <p class="myth__text">“Esto es solo para tapar arrugas.”</p>
+              <span class="myth__tag myth__tag--true">Verdad</span>
+              <p class="myth__answer">Buena parte de la consulta es calidad de piel: manchas, textura, hidratación y prevención. Empezar a tiempo suele pedir mucho menos después.</p>
             </div>
           </article>
 
-          <article class="myth reveal" tabindex="0" role="button" aria-label="Mito: si a una amiga le funcionó, a mí también. Activa para ver la respuesta.">
-            <div class="myth__inner">
-              <div class="myth__face myth__face--front">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-8.jpg" alt="" loading="lazy" />
-                <span class="myth__tag">Mito</span>
-                <p class="myth__text">“Si a mi amiga le funcionó, a mí también.”</p>
-                <span class="myth__hint">Ver respuesta</span>
-              </div>
-              <div class="myth__face myth__face--back">
-                <img src="assets/plastic-esthetic-stock/mitos/mito-8.jpg" alt="" loading="lazy" />
-                <span class="myth__tag myth__tag--true">Verdad</span>
-                <p class="myth__text">La piel responde según genética, hábitos y hormonas. Por eso el protocolo se decide después de valorarte, y a veces con pruebas genéticas de por medio.</p>
-              </div>
+          <article class="myth reveal">
+            <img src="assets/plastic-esthetic-stock/mitos/mito-8.jpg" alt="" loading="lazy" />
+            <div class="myth__body">
+              <span class="myth__tag">Mito</span>
+              <p class="myth__text">“Si a mi amiga le funcionó, a mí también.”</p>
+              <span class="myth__tag myth__tag--true">Verdad</span>
+              <p class="myth__answer">La piel responde según genética, hábitos y hormonas. Por eso el protocolo se decide después de valorarte, y a veces con pruebas genéticas de por medio.</p>
             </div>
           </article>
 
@@ -1032,12 +1019,12 @@
         </p>
       </div>
       <nav class="footer-links" aria-label="Navegación del pie">
+        <a href="#testimonios">Opiniones</a>
         <a href="#resultados">Resultados</a>
         <a href="#tratamientos">Tratamientos</a>
         <a href="tratamientos.html">Todos los tratamientos</a>
         <a href="#equipo">Equipo</a>
         <a href="#instalaciones">Instalaciones</a>
-        <a href="#testimonios">Opiniones</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <div class="footer-social">
@@ -1064,8 +1051,8 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.477-.738-6.24-1.993l-.436-.321-2.644.886.886-2.644-.321-.436A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 
-  <script defer src="lib/gsap.min.js?v=20260924d"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20260924d"></script>
-  <script defer src="main.js?v=20260924d"></script>
+  <script defer src="lib/gsap.min.js?v=20260929e"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20260929e"></script>
+  <script defer src="main.js?v=20260929g"></script>
 </body>
 </html>

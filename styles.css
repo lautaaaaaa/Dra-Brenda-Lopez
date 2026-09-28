@@ -274,25 +274,6 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   box-shadow: 0 6px 20px rgba(198,161,91,0.35);
 }
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  width: 28px;
-  padding: 4px 0;
-  z-index: 1001;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%; height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: all 0.3s var(--ease-out);
-  transform-origin: center;
-}
-.nav-toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
-.nav-toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* =============================================================
    6. HERO — NO CAMBIAR el padding-top (empuja el contenido debajo
@@ -1108,22 +1089,28 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   .footer-social { justify-content: center; }
   .footer-links { align-items: center; }
 
-  .nav-toggle { display: flex; }
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
+  /* En celular y tablet el navbar tiene dos filas: logo arriba y abajo los
+     links siempre visibles (un menu escondido tras un icono casi no se toca).
+     Solo van los 4 principales; Agendar ya esta en botones y en el flotante
+     de WhatsApp. --nav-h crece para que el hero y los anclas lo respeten. */
+  :root { --nav-h: 104px; }
+  .nav-inner {
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 0;
   }
-  .nav-links.is-open { opacity: 1; pointer-events: auto; }
-  .nav-links a { font-size: 1.2rem; }
+  .nav-logo { height: 64px; }
+  .nav-links {
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border-top: 1px solid rgba(30,28,26,0.08);
+  }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.02em; }
+  .nav-links a::after { bottom: -3px; }
+  .nav-links a:nth-child(n+5) { display: none; }
   .nav-cta { display: none; }
 }
 
@@ -1446,8 +1433,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
 .promo-price .btn { width: 100%; justify-content: center; }
 
 /* ---- 21.6 MITO VS VERDAD ----
-   Tarjetas de foto a sangre que giran en 3D: al frente el mito, al dorso
-   la respuesta. Hover en desktop, tap en tactil (main.js -> initMyths). */
+   Tarjetas de foto a sangre con el mito arriba y la verdad abajo. */
 .myths { background: var(--blush); }
 .myths-grid {
   display: grid;
@@ -1455,53 +1441,41 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   gap: 1.5rem;
   margin-top: 0.5rem;
 }
-.myth { perspective: 1500px; min-height: 340px; cursor: pointer; outline: none; }
-.myth__inner {
+/* Tarjeta fija: el mito arriba y la verdad abajo, todo a la vista.
+   Antes giraba, pero en celular costaba leerla y en iOS se transparentaba. */
+.myth {
   position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 340px;
-  transition: transform 0.85s var(--ease-out);
-  transform-style: preserve-3d;
-}
-.myth:hover .myth__inner,
-.myth:focus-visible .myth__inner,
-.myth.is-flipped .myth__inner { transform: rotateY(180deg); }
-.myth__face {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.8rem;
-  padding: 1.5rem;
+  min-height: 340px;
   border-radius: 16px;
   overflow: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   box-shadow: 0 10px 30px rgba(30,28,26,0.12);
 }
-.myth__face img {
+.myth > img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.myth__face::after {
+.myth::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(30,28,26,0.94) 8%, rgba(30,28,26,0.72) 48%, rgba(30,28,26,0.4) 100%);
+  background: linear-gradient(to top, rgba(30,28,26,0.96) 10%, rgba(30,28,26,0.86) 55%, rgba(30,28,26,0.6) 100%);
 }
-.myth__face--back { transform: rotateY(180deg); }
-.myth__face--back::after {
-  background: linear-gradient(to top, rgba(30,28,26,0.96) 8%, rgba(30,28,26,0.9) 60%, rgba(30,28,26,0.74) 100%);
+.myth__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  margin-top: auto;
 }
-.myth__face > *:not(img) { position: relative; z-index: 2; }
 .myth__tag {
   align-self: flex-start;
-  order: -1;
   font-size: 0.6rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -1510,25 +1484,22 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   border: 1px solid rgba(240,222,218,0.5);
   color: var(--blush);
 }
-.myth__tag--true { border-color: rgba(224,200,154,0.6); color: var(--accent-light); }
+.myth__tag--true {
+  margin-top: 0.6rem;
+  border-color: rgba(224,200,154,0.6);
+  color: var(--accent-light);
+}
 .myth__text {
   font-family: var(--serif);
   font-size: 1.25rem;
   line-height: 1.35;
   color: #FBF7F2;
 }
-.myth__face--back .myth__text {
-  font-family: var(--sans);
+.myth__answer {
   font-size: 0.9rem;
   line-height: 1.7;
   color: rgba(251,247,242,0.88);
   font-weight: 300;
-}
-.myth__hint {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(251,247,242,0.55);
 }
 .myths-note {
   text-align: center;
@@ -1825,11 +1796,14 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
 .results .section-inner {
   width: min(1395px, 94vw);
 }
+/* 5 resultados: 3 arriba y 2 abajo, la fila incompleta centrada */
 .results-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
 }
+.results-grid .result-card { width: calc((100% - 2.5rem) / 3); }
 .result-card {
   background: var(--paper);
   border-radius: 16px;
@@ -1849,68 +1823,49 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
   color: var(--ink);
 }
 
-/* Before/After Slider — aspect-ratio 4/3, Despues siempre visible detras,
-   Antes recortado con clip-path desde la izquierda. NO CAMBIAR. */
-.ba-slider {
+/* Antes/despues: recuadro 8:5 (mas bajo que el 4:3 original, para que
+   entren mejor las fotos horizontales), antes a la izquierda y despues a la
+   derecha, fijas, con una linea fina en el medio. */
+.ba-pair {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 8/5;
   overflow: hidden;
-  cursor: col-resize;
-  user-select: none;
-  -webkit-user-select: none;
+  display: flex;
 }
-.ba-slider img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+.ba-pair .ba-half {
+  width: 50%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none;
-  -webkit-user-drag: none;
-  user-select: none;
+  display: block;
 }
-.ba-before { clip-path: inset(0 50% 0 0); }
-.ba-after { z-index: 1; }
-.ba-before { z-index: 2; }
-.ba-handle {
+.ba-divider {
   position: absolute;
   top: 0; bottom: 0;
   left: 50%;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-.ba-handle-line {
   width: 2px;
-  flex: 1;
+  transform: translateX(-50%);
   background: #fff;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  z-index: 3;
 }
-.ba-handle-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.ba-handle-circle svg {
-  width: 20px;
-  height: 20px;
-  color: var(--accent);
+/* Firma de la doctora, por encima de las dos fotos. Discreta: no debe competir
+   con el resultado que se esta mostrando, asi que va chica y tirando hacia abajo. */
+.ba-pair .ba-watermark {
+  position: absolute;
+  top: 74%;
+  left: 50%;
+  width: 40%;
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  opacity: 0.55;
+  z-index: 4;
+  pointer-events: none;
 }
 .ba-label {
   position: absolute;
   bottom: 12px;
-  z-index: 4;
+  z-index: 5;
   padding: 4px 14px;
   border-radius: 50px;
   font-size: 0.75rem;
@@ -1937,7 +1892,10 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.1; letter-spacing: -0.02em; 
 }
 
 @media (max-width: 900px) {
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .results-grid .result-card { width: calc((100% - 1.25rem) / 2); }
+}
+@media (max-width: 540px) {
+  .results-grid .result-card { width: 100%; }
 }
 
 /* ---- Banda puente al catalogo completo ----

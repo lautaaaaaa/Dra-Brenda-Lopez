@@ -26,31 +26,11 @@
   /* ── NAV ── */
   function initNav() {
     var nav = $("#nav");
-    var toggle = $(".nav-toggle");
-    var links = $(".nav-links");
     if (!nav) return;
 
     window.addEventListener("scroll", function () {
       nav.classList.toggle("is-scrolled", window.scrollY > 40);
     }, { passive: true });
-
-    if (toggle && links) {
-      toggle.addEventListener("click", function () {
-        var open = links.classList.toggle("is-open");
-        toggle.classList.toggle("is-open", open);
-        toggle.setAttribute("aria-expanded", open);
-        document.body.style.overflow = open ? "hidden" : "";
-      });
-
-      $$("a", links).forEach(function (a) {
-        a.addEventListener("click", function () {
-          links.classList.remove("is-open");
-          toggle.classList.remove("is-open");
-          toggle.setAttribute("aria-expanded", "false");
-          document.body.style.overflow = "";
-        });
-      });
-    }
   }
 
   /* ── SMOOTH SCROLL ── */
@@ -63,7 +43,8 @@
       var el = document.querySelector(id);
       if (!el) return;
       e.preventDefault();
-      var navOffset = 80;
+      var nav = $("#nav");
+      var navOffset = (nav ? nav.offsetHeight : 72) + 8;
       window.scrollTo({
         top: el.getBoundingClientRect().top + window.scrollY - navOffset,
         behavior: "smooth"
@@ -140,20 +121,6 @@
     });
   }
 
-  /* ── MITO VS VERDAD ──
-     En desktop la tarjeta gira con :hover (CSS). En tactil no hay hover,
-     asi que el tap alterna la clase; el teclado usa Enter/Espacio. */
-  function initMyths() {
-    var touchOnly = window.matchMedia("(hover: none)").matches;
-    $$(".myth").forEach(function (myth) {
-      var toggle = function () { myth.classList.toggle("is-flipped"); };
-      if (touchOnly) myth.addEventListener("click", toggle);
-      myth.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
-      });
-    });
-  }
-
   function initFAQ() { accordion(".faq-item", ".faq-q", ".faq-a"); }
   function initCatalog() { accordion(".cat-item", ".cat-q", ".cat-a"); }
 
@@ -191,46 +158,6 @@
     var heroImg = $(".hero-img-card");
     if (heroText) heroText.classList.add("hero-animate-in");
     if (heroImg) setTimeout(function () { heroImg.classList.add("hero-animate-in"); }, 300);
-  }
-
-  /* ── ANTES/DESPUES: barra deslizable de comparacion ── */
-  function initBA() {
-    $$("[data-ba]").forEach(function (slider) {
-      var before = $(".ba-before", slider);
-      var handle = $(".ba-handle", slider);
-      if (!before || !handle) return;
-
-      var isDragging = false;
-
-      function setPosition(x) {
-        var rect = slider.getBoundingClientRect();
-        var pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-        before.style.clipPath = "inset(0 " + (100 - pct) + "% 0 0)";
-        handle.style.left = pct + "%";
-      }
-
-      slider.addEventListener("mousedown", function (e) {
-        e.preventDefault();
-        isDragging = true;
-        setPosition(e.clientX);
-      });
-      window.addEventListener("mousemove", function (e) {
-        if (isDragging) {
-          e.preventDefault();
-          setPosition(e.clientX);
-        }
-      });
-      window.addEventListener("mouseup", function () { isDragging = false; });
-
-      slider.addEventListener("touchstart", function (e) {
-        isDragging = true;
-        setPosition(e.touches[0].clientX);
-      }, { passive: true });
-      slider.addEventListener("touchmove", function (e) {
-        if (isDragging) setPosition(e.touches[0].clientX);
-      }, { passive: true });
-      slider.addEventListener("touchend", function () { isDragging = false; });
-    });
   }
 
   /* ── BOOKING: calendario + slots + envio a WhatsApp ── */
@@ -362,9 +289,7 @@
     safe(initSmoothScroll, "initSmoothScroll");
     safe(initReveals, "initReveals");
     safe(initFAQ, "initFAQ");
-    safe(initMyths, "initMyths");
     safe(initCatalog, "initCatalog");
-    safe(initBA, "initBA");
     safe(initHeroParallax, "initHeroParallax");
     safe(initBooking, "initBooking");
     safe(initGSAP, "initGSAP");
